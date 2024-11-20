@@ -1,7 +1,8 @@
 "use client";
 
-import { Spinner } from "@/components/spinner";
+// import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { SignInButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
@@ -21,7 +22,8 @@ export const Heading = () => {
       </h3>
       {isLoading && (
         <div className="w-full flex items-center justify-center">
-          <Spinner size="lg" />
+          {/* <Spinner size="lg" /> */}
+          <Skeleton className="h-9 w-[155px] bg-slate-300" />
         </div>
       )}
       {isAuthenticated && !isLoading && (

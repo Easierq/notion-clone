@@ -7,8 +7,18 @@ import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/spinner";
+// import { Spinner } from "@/components/spinner";
 import Link from "next/link";
+import { Skeleton } from "@/components/ui/skeleton";
+
+export const ButtonSkeleton = () => {
+  return (
+    <div className="flex gap-2">
+      <Skeleton className="h-8 w-[60px] bg-slate-300" />
+      <Skeleton className="h-8 w-[150px] bg-slate-300" />
+    </div>
+  );
+};
 
 export const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -23,7 +33,7 @@ export const Navbar = () => {
     >
       <Logo />
       <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
-        {isLoading && <Spinner />}
+        {isLoading && <ButtonSkeleton />}
         {!isAuthenticated && !isLoading && (
           <>
             <SignInButton mode="modal">
