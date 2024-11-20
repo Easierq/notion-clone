@@ -11,6 +11,11 @@ const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 export const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#000000",
+        },
+      }}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
     >
       <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
